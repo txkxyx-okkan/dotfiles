@@ -1,9 +1,6 @@
 name: Test Dotfiles on macOS
 
-on:
-  pull_request:
-    branches:
-      - develop/**
+on: [push]
 
 jobs:
   test-dotfiles:
