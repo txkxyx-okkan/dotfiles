@@ -4,8 +4,6 @@ DOTFILES_DIR=$(cd "$(dirname "$0")" && pwd)
 # List of files to be placed in the home directory
 FILES=(
   .zshrc
-  .vimrc
-  .gitconfig
 )
 
 # List of directories to be placed in the home directory
@@ -67,5 +65,5 @@ else
   echo "Oh My Zsh は既にインストールされています。"
 fi
 
-echo "シンボリックリンクの作成が完了しました！"
+echo "インストールが完了しました！"
 
