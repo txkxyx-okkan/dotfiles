@@ -2,6 +2,9 @@ name: Test Dotfiles on macOS
 
 on: [push]
 
+env:
+  PASSWORD: your_password
+
 jobs:
   test-dotfiles:
     runs-on: macos-latest
@@ -20,7 +23,7 @@ jobs:
       # シェルを Zsh に変更
       - name: Change default shell to Zsh
         run: |
-          chsh -s $(which zsh)
+          echo $PASSWORD | sudo -S chsh -s $(which zsh)
 
       # dotfiles のインストールスクリプトを実行
       - name: Run install script
