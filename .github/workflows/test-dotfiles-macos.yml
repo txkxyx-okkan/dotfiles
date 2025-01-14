@@ -1,0 +1,47 @@
+name: Test Dotfiles on macOS
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  test-dotfiles:
+    runs-on: macos-latest
+
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 必要な依存パッケージをインストール
+      - name: Install dependencies
+        run: |
+          brew update
+          brew install curl zsh git
+
+      # シェルを Zsh に変更
+      - name: Change default shell to Zsh
+        run: |
+          chsh -s $(which zsh)
+
+      # dotfiles のインストールスクリプトを実行
+      - name: Run install script
+        run: |
+          chmod +x ./install.sh
+          ./install.sh
+
+      # Oh My Zsh の設定が正しく適用されているか確認
+      - name: Verify Oh My Zsh installation
+        run: |
+          if [ ! -d "$HOME/.oh-my-zsh" ]; then
+            echo "Oh My Zsh installation failed"
+            exit 1
+          fi
+          echo "Oh My Zsh installation verified successfully."
+
+      # 必要に応じて追加のテストを記述
+      - name: Test dotfiles functionality
+        run: |
+          zsh -c "source ~/.zshrc && echo 'Zsh is working correctly on macOS!'"
+
