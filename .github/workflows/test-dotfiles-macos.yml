@@ -3,7 +3,7 @@ name: Test Dotfiles on macOS
 on:
   pull_request:
     branches:
-      - develop
+      - develop/**
 
 jobs:
   test-dotfiles:
