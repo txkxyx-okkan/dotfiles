@@ -13,6 +13,8 @@ jobs:
       # リポジトリをチェックアウト
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          workign-directory: .
 
       # 必要な依存パッケージをインストール
       - name: Install dependencies
@@ -28,6 +30,7 @@ jobs:
       # dotfiles のインストールスクリプトを実行
       - name: Run install script
         run: |
+          cd .
           chmod +x ./install.sh
           ./install.sh
 
