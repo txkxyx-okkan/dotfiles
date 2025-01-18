@@ -2,6 +2,8 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
+local act = wezterm.action
+
 config.automatically_reload_config = true
 config.check_for_updates = true
 config.check_for_updates_interval_seconds = 86400
@@ -36,5 +38,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     { Text = title },
   }
 end)
+
+config.keys = {
+  {
+    key = 'LeftArrow',
+    mods = 'CMD',
+    action = act.ActivateTabRelative(-1)
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CMD',
+    action = act.ActivateTabRelative(1)
+  }
+}
 
 return config
