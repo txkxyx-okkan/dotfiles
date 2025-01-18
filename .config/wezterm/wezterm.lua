@@ -49,6 +49,13 @@ config.keys = {
     key = 'RightArrow',
     mods = 'CMD',
     action = act.ActivateTabRelative(1)
+  },
+  {
+    key = 't',
+    mods = 'CMD',
+    action = act.SpawnCommandInNewTab {
+      cwd = '~'
+    }
   }
 }
 
