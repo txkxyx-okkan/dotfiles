@@ -1,4 +1,3 @@
-#!/bin/bash
 # Install Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Oh My Zsh をインストールしています..."
