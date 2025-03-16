@@ -58,12 +58,13 @@ for dir in "${DIRECTORIES[@]}"; do
 done
 
 # Install Oh My Zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "Oh My Zsh をインストールしています..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  echo "Oh My Zsh は既にインストールされています。"
-fi
+# if [ ! -d "$HOME/.oh-my-zsh" ]; then
+#   echo "Oh My Zsh をインストールしています..."
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# else
+#   echo "Oh My Zsh は既にインストールされています。"
+# fi
+"$DOTFILES_DIR/install/install_ohmyzsh.sh"
 
 echo "インストールが完了しました！"
 
