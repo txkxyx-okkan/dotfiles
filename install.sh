@@ -34,9 +34,13 @@ create_symlink() {
 }
 
 # Main process
-echo "シンボリックリンクの作成を開始します..."
+
+# Install Homebrew
+chmod +x "$DOTFILES_DIR/install/install_homebrew.sh"
+"$DOTFILES_DIR/install/install_homebrew.sh"
 
 # Create symbolic links for files
+echo "シンボリックリンクの作成を開始します..."
 for file in "${FILES[@]}"; do
   src="$DOTFILES_DIR/$file"
   dest="$HOME/$file"
