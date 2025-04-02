@@ -18,7 +18,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# export PATH="/Users/okamototakuya/.rd/bin:$PATH"
+export PATH="/Users/okamototakuya/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
